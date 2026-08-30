@@ -1,7 +1,7 @@
 # LexisGraph — Task Plan
 
 ## Phase 1: Foundation & Core Pipeline
-- [ ] Project scaffolding (pyproject.toml, directory structure, .env.example)
+- [x] Project scaffolding (pyproject.toml, directory structure, .env.example)
 - [ ] docker-compose.yml (Qdrant + Neo4j + App)
 - [ ] app/config.py — centralized settings
 - [ ] app/core/ingestion/pdf_processor.py — PDF to images

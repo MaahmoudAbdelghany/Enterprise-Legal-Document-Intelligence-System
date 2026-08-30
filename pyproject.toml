@@ -1,0 +1,78 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "lexisgraph"
+version = "0.1.0"
+description = "Enterprise Legal Arabic Document Intelligence System"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [
+    { name = "LexisGraph Engineering Team" }
+]
+dependencies = [
+    "fastapi>=0.115.0",
+    "uvicorn[standard]>=0.30.0",
+    "pydantic>=2.8.0",
+    "pydantic-settings>=2.4.0",
+    "python-multipart>=0.0.9",
+    "langchain>=0.3.0",
+    "langchain-core>=0.3.0",
+    "langchain-community>=0.3.0",
+    "langchain-groq>=0.2.0",
+    "langchain-openai>=0.2.0",
+    "langchain-neo4j>=0.1.1",
+    "groq>=0.11.0",
+    "sentence-transformers>=3.0.0",
+    "qdrant-client>=1.11.0",
+    "neo4j>=5.23.0",
+    "presidio-analyzer>=2.2.355",
+    "presidio-anonymizer>=2.2.355",
+    "rank-bm25>=0.2.2",
+    "pdf2image>=1.17.0",
+    "pillow>=10.4.0",
+    "pypdf>=4.3.0",
+    "httpx>=0.27.0",
+    "loguru>=0.7.2",
+    "numpy>=1.26.0",
+    "torch>=2.2.0",
+    "transformers>=4.44.0"
+]
+
+[project.optional-dependencies]
+security = [
+    "nemoguardrails>=0.9.0",
+    "spacy>=3.7.0"
+]
+evaluation = [
+    "ragas>=0.1.15",
+    "datasets>=2.20.0"
+]
+dev = [
+    "pytest>=8.3.0",
+    "pytest-asyncio>=0.24.0",
+    "pytest-cov>=5.0.0",
+    "black>=24.8.0",
+    "ruff>=0.6.0",
+    "mypy>=1.11.0"
+]
+all = [
+    "lexisgraph[security,evaluation,dev]"
+]
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+addopts = "-ra -q --cov=app --cov-report=term-missing"
+testpaths = ["tests"]
+asyncio_mode = "auto"
+filterwarnings = [
+    "ignore::DeprecationWarning",
+    "ignore::UserWarning"
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+exclude = [".venv", "dist", "build"]
