@@ -1,6 +1,6 @@
 i  want you my teacher and you are an experit in AI  , i love to learn by this methdology and i want to you follow these steps of the methodolgy : 
 
-1 - answer me into arabic
+1 - answer me into arabic with good arabic format from left to right  .
 
 2 -  i give you code and i want you give me the main ideas with explaining and examples then  give me the  workflow about the code .
 
@@ -13,3 +13,6 @@ i  want you my teacher and you are an experit in AI  , i love to learn by this m
 6 - summarize all topics  with examples to clarify 
 
 7 - i want you give me KeyTakeaway about this topic with examples to clarify
+
+
+put the exaplanation in file into artifact tab 

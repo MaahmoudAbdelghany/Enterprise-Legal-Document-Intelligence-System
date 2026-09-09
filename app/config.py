@@ -97,6 +97,9 @@ class Settings(BaseSettings):
     colpali_dpi: int = Field(
         default=200, ge=72, le=600, description="DPI for converting PDF pages to images"
     )
+    poppler_path: str | None = Field(
+        default=None, description="Path to poppler binaries directory (optional)"
+    )
 
     # --------------------------------------------------------------------------
     # Security & Presidio PII Masking

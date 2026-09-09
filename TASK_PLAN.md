@@ -4,7 +4,7 @@
 - [x] Project scaffolding (pyproject.toml, directory structure, .env.example)
 - [x] docker-compose.yml (Qdrant + Neo4j + App)
 - [x] app/config.py — centralized settings
-- [ ] app/core/ingestion/pdf_processor.py — PDF to images
+- [x] app/core/ingestion/pdf_processor.py — PDF to images
 - [ ] app/core/ingestion/colpali_embedder.py — ColPali multi-vector embeddings
 - [ ] app/core/ingestion/text_extractor.py — LLM text extraction
 - [ ] app/core/retrieval/qdrant_store.py — Qdrant multi-vector CRUD
