@@ -5,7 +5,7 @@
 - [x] docker-compose.yml (Qdrant + Neo4j + App)
 - [x] app/config.py — centralized settings
 - [x] app/core/ingestion/pdf_processor.py — PDF to images
-- [ ] app/core/ingestion/colpali_embedder.py — ColPali multi-vector embeddings
+- [x] app/core/ingestion/colpali_embedder.py — ColPali multi-vector embeddings
 - [ ] app/core/ingestion/text_extractor.py — LLM text extraction
 - [ ] app/core/retrieval/qdrant_store.py — Qdrant multi-vector CRUD
 - [ ] app/core/generation/chain.py — LCEL RAG chain
