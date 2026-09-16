@@ -274,66 +274,14 @@ def format_legal_context(
 
 
 # ------------------------------------------------------------------------------
-# Prompt Templates
+# Prompt Templates (imported from app.core.generation.prompts)
 # ------------------------------------------------------------------------------
 
-DEFAULT_LEGAL_SYSTEM_PROMPT = """أنت مستشار وباحث قانوني رقمي فائق الذكاء، متخصص في تحليل وتفسير المستندات والعقود واللوائح والقرارات القضائية باللغتين العربية والإنجليزية.
-
-مهمتك الأساسية:
-تقديم إجابات قانونية بالغة الدقة والاحترافية بالاعتماد الحصري والصارم على "السياق المستندي المرفق" فقط.
-
-القواعد الإلزامية التي يجب الالتزام بها دون استثناء:
-1. الأمانة والتحري الصارم (Strict Grounding):
-   - استخرج إجابتك حصراً من النصوص المذكورة في سياق المستندات أدناه.
-   - يُحظر تماماً اختلاق أو تخمين أو افتراض أي بنود أو وقائع أو التزامات غير منصوص عليها صراحة في السياق.
-   - إذا كان السياق لا يحتوي على إجابة السؤال كلياً أو جزئياً، فصرّح بوضوح ومهنية:
-     "المعلومة المطلوبة غير مذكورة في المستندات المرفقة"، واذكر فقط ما يتصل بها من حقائق إن وُجدت.
-
-2. التوثيق والإسناد الدقيق (Precise Citations):
-   - عند ذكر أي شرط، التزام، غرامة، أو حكم، اذكر المصدر بدقة بين قوسين، على سبيل المثال:
-     (اسم المستند / المعرف: [اسم المستند]، الصفحة: [رقم الصفحة]، المادة/البند: [رقم المادة إن وُجد]).
-
-3. الصياغة القانونية الرصينة:
-   - استخدم المصطلحات القانونية المعتمدة (مثل: الطرف الأول، الطرف الثاني، الديباجة، الالتزامات الجوهرية، التعويض الاتفاقي، القوة القاهرة، فسخ العقد، الإخطار الكتابي).
-   - رتّب الإجابة في نقاط واضحة أو فقرات محكمة لتسهيل اتخاذ القرار القانوني.
-
-4. لغة الإجابة:
-   - أجب باللغة العربية الفصحى القانونية افتراضياً، أو باللغة الإنجليزية إذا كان السؤال مطروحاً بالإنجليزية.
-"""
-
-DEFAULT_HUMAN_PROMPT = """السياق المستندي المرفق:
-{context}
-
-السؤال القانوني:
-{question}
-
-الإجابة القانونية الموثقة:"""
-
-
-def create_default_legal_prompt(
-    system_prompt: str | None = None,
-    include_chat_history: bool = False,
-) -> ChatPromptTemplate:
-    """Create a LangChain ChatPromptTemplate configured for legal document QA.
-
-    Args:
-        system_prompt: Optional custom system prompt overriding default.
-        include_chat_history: If True, inserts MessagesPlaceholder for chat_history.
-
-    Returns:
-        ChatPromptTemplate ready for LCEL binding.
-    """
-    sys_text = system_prompt.strip() if system_prompt and system_prompt.strip() else DEFAULT_LEGAL_SYSTEM_PROMPT
-    messages: list[Any] = [
-        SystemMessagePromptTemplate.from_template(sys_text),
-    ]
-
-    if include_chat_history:
-        messages.append(MessagesPlaceholder(variable_name="chat_history", optional=True))
-
-    messages.append(HumanMessagePromptTemplate.from_template(DEFAULT_HUMAN_PROMPT))
-
-    return ChatPromptTemplate.from_messages(messages)
+from app.core.generation.prompts import (
+    DEFAULT_HUMAN_PROMPT,
+    DEFAULT_LEGAL_SYSTEM_PROMPT,
+    create_default_legal_prompt,
+)
 
 
 # ------------------------------------------------------------------------------
