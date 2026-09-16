@@ -8,7 +8,7 @@
 - [x] app/core/ingestion/colpali_embedder.py — ColPali multi-vector embeddings
 - [x] app/core/ingestion/text_extractor.py — LLM text extraction
 - [x] app/core/retrieval/qdrant_store.py — Qdrant multi-vector CRUD
-- [ ] app/core/generation/chain.py — LCEL RAG chain
+- [x] app/core/generation/chain.py — LCEL RAG chain
 - [ ] app/core/generation/prompts.py — Arabic-aware prompts
 - [ ] app/models/schemas.py — Pydantic models
 - [ ] app/api/routes/documents.py — upload/list/delete endpoints

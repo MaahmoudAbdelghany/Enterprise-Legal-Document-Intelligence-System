@@ -16,3 +16,6 @@ i  want you my teacher and you are an experit in AI  , i love to learn by this m
 
 
 put the exaplanation in file into artifact tab 
+
+
+and finaly please make sure to write with good arabic format from left to right  .
