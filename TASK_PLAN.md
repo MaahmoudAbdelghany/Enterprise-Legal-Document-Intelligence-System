@@ -10,7 +10,7 @@
 - [x] app/core/retrieval/qdrant_store.py — Qdrant multi-vector CRUD
 - [x] app/core/generation/chain.py — LCEL RAG chain
 - [x] app/core/generation/prompts.py — Arabic-aware prompts
-- [ ] app/models/schemas.py — Pydantic models
+- [x] app/models/schemas.py — Pydantic models
 - [ ] app/api/routes/documents.py — upload/list/delete endpoints
 - [ ] app/api/routes/query.py — query endpoint
 - [ ] app/api/routes/health.py — health check

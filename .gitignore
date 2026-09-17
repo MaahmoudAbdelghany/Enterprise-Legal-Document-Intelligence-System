@@ -70,7 +70,7 @@ Thumbs.db
 data/
 uploads/
 cache/
-models/
+/models/
 *.h5
 *.pt
 *.bin
