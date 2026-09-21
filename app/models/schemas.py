@@ -1,3 +1,4 @@
+
 """Pydantic request and response schemas for LexisGraph.
 
 Provides type-safe, validated domain models for the LexisGraph REST API,
