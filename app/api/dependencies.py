@@ -13,6 +13,7 @@ from typing import Generator
 from loguru import logger
 
 from app.config import Settings, get_settings
+from app.core.generation.chain import LegalRAGChain
 from app.core.ingestion.colpali_embedder import ColPaliEmbedder
 from app.core.ingestion.pdf_processor import PDFProcessor
 from app.core.ingestion.text_extractor import TextExtractor
@@ -25,6 +26,7 @@ _qdrant_store: QdrantStore | None = None
 _pdf_processor: PDFProcessor | None = None
 _colpali_embedder: ColPaliEmbedder | None = None
 _text_extractor: TextExtractor | None = None
+_legal_rag_chain: LegalRAGChain | None = None
 
 
 def get_app_settings() -> Settings:
@@ -120,12 +122,28 @@ def get_text_extractor() -> TextExtractor:
     return _text_extractor
 
 
+def get_legal_rag_chain() -> LegalRAGChain:
+    """Dependency provider for LegalRAGChain.
+
+    Returns the shared LegalRAGChain instance configured with application settings.
+    """
+    global _legal_rag_chain
+    if _legal_rag_chain is None:
+        settings = get_settings()
+        logger.info(
+            f"Initializing shared LegalRAGChain (groq_model='{settings.groq_reasoning_model}', "
+            f"openai_fallback='{settings.openai_model}')"
+        )
+        _legal_rag_chain = LegalRAGChain(settings=settings)
+    return _legal_rag_chain
+
+
 def reset_dependencies() -> None:
     """Reset all cached dependency singletons.
 
     Primarily used in unit tests to ensure test isolation and clean teardown.
     """
-    global _qdrant_store, _pdf_processor, _colpali_embedder, _text_extractor
+    global _qdrant_store, _pdf_processor, _colpali_embedder, _text_extractor, _legal_rag_chain
 
     if _qdrant_store is not None:
         try:
@@ -137,4 +155,5 @@ def reset_dependencies() -> None:
     _pdf_processor = None
     _colpali_embedder = None
     _text_extractor = None
+    _legal_rag_chain = None
     logger.debug("LexisGraph API dependencies reset.")
