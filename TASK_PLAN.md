@@ -13,7 +13,7 @@
 - [x] app/models/schemas.py — Pydantic models
 - [x] app/api/routes/documents.py — upload/list/delete endpoints
 - [x] app/api/routes/query.py — query endpoint
-- [ ] app/api/routes/health.py — health check
+- [x] app/api/routes/health.py — health check
 - [ ] app/main.py — FastAPI entry point
 - [ ] End-to-end test: upload PDF → query → get answer
 
