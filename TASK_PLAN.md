@@ -14,7 +14,7 @@
 - [x] app/api/routes/documents.py — upload/list/delete endpoints
 - [x] app/api/routes/query.py — query endpoint
 - [x] app/api/routes/health.py — health check
-- [ ] app/main.py — FastAPI entry point
+- [x] app/main.py — FastAPI entry point
 - [ ] End-to-end test: upload PDF → query → get answer
 
 ## Phase 2: Hybrid Retrieval & Knowledge Graph

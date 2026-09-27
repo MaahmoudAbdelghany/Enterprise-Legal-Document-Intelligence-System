@@ -131,7 +131,7 @@ def get_legal_rag_chain() -> LegalRAGChain:
     if _legal_rag_chain is None:
         settings = get_settings()
         logger.info(
-            f"Initializing shared LegalRAGChain (groq_model='{settings.groq_reasoning_model}', "
+            f"Initializing shared LegalRAGChain (groq_model='{settings.groq_model}', "
             f"openai_fallback='{settings.openai_model}')"
         )
         _legal_rag_chain = LegalRAGChain(settings=settings)
